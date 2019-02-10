@@ -12,7 +12,8 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      hoveringOver: null
     };
 
     this.audioElement = document.createElement("audio");
@@ -34,34 +35,55 @@ class Album extends Component {
     this.setState({ currentSong: song });
   }
 
+  isPlayingCurrentSong(song) {
+    return this.state.isPlaying && this.state.currentSong === song
+  }
+
   handleSongClick(song) {
     const isSameSong = this.state.currentSong === song;
     if (this.state.isPlaying && isSameSong) {
       this.pause();
     } else {
-      if (!isSameSong) { this.setSong(song); }
+      if (!isSameSong) {
+        this.setSong(song);
+      }
       this.play();
     }
-    console.log(this.state.isPlaying);
-    console.log(this.state.currentSong);
   }
 
+  handleMouseEnter(index) {
+    this.setState({hoveringOver: index });
+    // console.log("Entered ", index)
+  }
+
+  handleMouseLeave(index) {
+    this.setState({hoveringOver: null });
+    // console.log("Hovering over: ", this.state.hoveringOver)
+    // console.log("Left")
+  }
 
   render() {
-    const songs = this.state.album.songs;
+    const { album, currentSong, isPlaying, hoveringOver } = this.state
+    const icon = "play-circle"
+    const songs = album.songs;
     return (
       <section className="album">
         <section id="album-info">
           <img
             id="album-cover-art"
-            src={this.state.album.albumCover}
-            alt={this.state.album.title}
+            src={album.albumCover}
+            alt={album.title}
           />
           <div className="album-details">
-            <h1 id="album-title">{this.state.album.title}</h1>
-            <h2 className="artist">{this.state.album.artist}</h2>
-            <div id="release-info">{this.state.album.releaseInfo}</div>
+            <h1 id="album-title">{album.title}</h1>
+            <h2 className="artist">{album.artist}</h2>
+            <div id="release-info">{album.releaseInfo}</div>
           </div>
+          <span>Hovering over: {hoveringOver}</span>
+          <br></br>
+          <span>Is playing: {`${isPlaying}`}</span>
+          <br></br>
+          <span>current song: {currentSong.title}</span>
         </section>
         <table id="song-list">
           <colgroup>
@@ -75,8 +97,26 @@ class Album extends Component {
                 className="song"
                 key={index}
                 onClick={() => this.handleSongClick(song)}
+                onMouseEnter={() => this.handleMouseEnter(index)}
+                onMouseLeave={() => this.handleMouseLeave()}
               >
-                <td>{index + 1}</td>
+                <td>
+                  {hoveringOver === index || currentSong === song ? (
+                    <span>{this.isPlayingCurrentSong(song) ? (
+                      <span className={`icon ion-md-pause`}></span>
+                    ) : (
+                      <span className={`icon ion-md-play-circle`}></span>
+                    )}
+                    </span>
+                  ) : (
+                    <span>{this.isPlayingCurrentSong(song) ? (
+                      <span className={`icon ion-md-${icon}`}></span>
+                    ) : (
+                      index + 1
+                    )}
+                    </span>
+                  )}
+                </td>
                 <td>{song.title}</td>
                 <td>{song.duration}</td>
               </tr>

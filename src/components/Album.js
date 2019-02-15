@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import albumData from "./../data/albums";
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -103,14 +104,14 @@ class Album extends Component {
                 <td>
                   {hoveringOver === index || currentSong === song ? (
                     <span>{this.isPlayingCurrentSong(song) ? (
-                      <span className={`icon ion-md-pause`}></span>
+                      <span className="icon ion-md-pause"></span>
                     ) : (
-                      <span className={`icon ion-md-play-circle`}></span>
+                      <span className="icon ion-md-play-circle"></span>
                     )}
                     </span>
                   ) : (
                     <span>{this.isPlayingCurrentSong(song) ? (
-                      <span className={`icon ion-md-${icon}`}></span>
+                      <span className="icon ion-md-play"></span>
                     ) : (
                       index + 1
                     )}
@@ -123,6 +124,7 @@ class Album extends Component {
             ))}
           </tbody>
         </table>
+        <PlayerBar isPlaying={this.state.isPlaying} currentSong={this.state.currentSong} />
       </section>
     );
   }

@@ -98,17 +98,14 @@ class Album extends Component {
 
   handleMouseEnter(index) {
     this.setState({hoveringOver: index });
-    // console.log("Entered ", index)
   }
 
   handleMouseLeave(index) {
     this.setState({hoveringOver: null });
-    // console.log("Hovering over: ", this.state.hoveringOver)
-    // console.log("Left")
   }
 
   render() {
-    const { album, currentSong, isPlaying, hoveringOver } = this.state
+     const { album, currentSong, isPlaying, hoveringOver } = this.state
     const icon = "play-circle"
     const songs = album.songs;
     return (
@@ -124,11 +121,6 @@ class Album extends Component {
             <h2 className="artist">{album.artist}</h2>
             <div id="release-info">{album.releaseInfo}</div>
           </div>
-          <span>Hovering over: {hoveringOver}</span>
-          <br></br>
-          <span>Is playing: {`${isPlaying}`}</span>
-          <br></br>
-          <span>current song: {currentSong.title}</span>
         </section>
         <table id="song-list">
           <colgroup>

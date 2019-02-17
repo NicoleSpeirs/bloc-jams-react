@@ -15,6 +15,7 @@ class Album extends Component {
       currentSong: album.songs[0],
       currentTime: 0,
       duration: album.songs[0].duration,
+      currentVolume: 0,
       isPlaying: false,
       hoveringOver: null
     };
@@ -30,17 +31,24 @@ class Album extends Component {
       },
       durationchange: e => {
         this.setState({ duration: this.audioElement.duration });
+      },
+      volumechange: e => {
+        this.setState({ currentVolume:this.audioElement.currentVolume });
       }
+
     };
     this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.addEventListener('volumechange', this.eventListeners.volumechange);
   }
 
   componentWillUnmount() {
     this.audioElement.src = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
-    this.audioElement.addEventListener('durationchange', this)
+    this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.addEventListener('volumechange', this.eventListeners.volumechange);
   }
+
 
   play() {
     this.audioElement.play();
@@ -82,10 +90,26 @@ class Album extends Component {
     this.play();
   }
 
+  handleVolumeChange(e) {
+    const newVolume = this.audioElement.volume * e.target.value;
+    this.audioElement.currentVolume = newVolume;
+    this.setState({ currentVolume: newVolume});
+  }
+
   handleTimeChange(e) {
     const newTime = this.audioElement.duration * e.target.value;
     this.audioElement.currentTime = newTime;
     this.setState({ currentTime: newTime });
+    this.formatTime();
+  }
+  formatTime(seconds) {
+    if(seconds) {
+      const m = Math.floor(seconds/ 60);
+      const s = Math.floor(seconds % 60);
+      return `${m}:${s}`
+    } else {
+      return `-:--`
+    }
   }
 
   handlePrevClick() {
@@ -105,8 +129,7 @@ class Album extends Component {
   }
 
   render() {
-     const { album, currentSong, isPlaying, hoveringOver } = this.state
-    const icon = "play-circle"
+    const { album, currentSong, isPlaying, hoveringOver } = this.state
     const songs = album.songs;
     return (
       <section className="album">
@@ -161,14 +184,17 @@ class Album extends Component {
           </tbody>
         </table>
         <PlayerBar
-          isPlaying={this.state.isPlaying}
+          isPlaying={isPlaying}
           currentSong={this.state.currentSong}
           currentTime={this.audioElement.currentTime}
           duration={this.audioElement.duration}
+          currentVolume={this.audioElement.currentVolume}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
           handleTimeChange={(e) => this.handleTimeChange(e)}
+          handleVolumeChange={(e) => this.handleVolumeChange(e)}
+          formatTime={(seconds) => this.formatTime(seconds)}
          />
       </section>
     );

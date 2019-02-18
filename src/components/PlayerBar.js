@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import "./Album.css";
 
  class PlayerBar extends Component {
    render() {
      return (
        <section className="icon ion-md-player-bar">
         <section id="buttons">
-          <button id="previous" onClick={this.props.handlePrevClick}>
+          <Button variant="light" id="previous" onClick={this.props.handlePrevClick}>
             <span className="icon ion-md-skip-backward"></span>
-          </button>
-          <button id="play-pause" onClick={this.props.handleSongClick} >
+          </Button>
+          <Button variant="light" id="play-pause" onClick={this.props.handleSongClick} >
             <span className={this.props.isPlaying ? 'icon ion-md-pause' : 'icon ion-md-play'}></span>
 
-          </button>
-          <button id="next" onClick={this.props.handleNextClick}>
+          </Button>
+          <Button variant="light" id="next" onClick={this.props.handleNextClick}>
             <span className="icon ion-md-skip-forward"></span>
-          </button>
+          </Button>
         </section>
         <section id="time-control">
           <div className="icon ion-md-current-time">{this.props.formatTime(this.props.currentTime)}</div>

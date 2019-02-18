@@ -1,0 +1,22 @@
+.landing-background {
+  background-color: pink;
+  background: url("https://i.ibb.co/5kZNZ9q/music-1285165-640.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -100;
+
+
+}
+
+.hero-title {
+  font-family: 'Monoton', cursive;
+  padding: 40px;
+  font-size: 50px;
+}
+

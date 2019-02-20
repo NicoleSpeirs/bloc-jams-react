@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import "./Album.css";
 
  class PlayerBar extends Component {
@@ -7,16 +6,16 @@ import "./Album.css";
      return (
        <section className="icon ion-md-player-bar">
         <section id="buttons">
-          <Button variant="light" id="previous" onClick={this.props.handlePrevClick}>
+          <button type="button" className="btn btn-light" id="previous" onClick={this.props.handlePrevClick}>
             <span className="icon ion-md-skip-backward"></span>
-          </Button>
-          <Button variant="light" id="play-pause" onClick={this.props.handleSongClick} >
+          </button>
+          <button type="button" className="btn btn-light" id="play-pause" onClick={this.props.handleSongClick} >
             <span className={this.props.isPlaying ? 'icon ion-md-pause' : 'icon ion-md-play'}></span>
 
-          </Button>
-          <Button variant="light" id="next" onClick={this.props.handleNextClick}>
+          </button>
+          <button type="button" className="btn btn-light" id="next" onClick={this.props.handleNextClick}>
             <span className="icon ion-md-skip-forward"></span>
-          </Button>
+          </button>
         </section>
         <section id="time-control">
           <div className="icon ion-md-current-time">{this.props.formatTime(this.props.currentTime)}</div>

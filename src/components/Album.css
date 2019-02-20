@@ -1,5 +1,6 @@
 #song-list {
-  background: url("https://i.ibb.co/vQv5fFx/blank-vinyl-record-jacket-2924018-640.jpg");
+  background-color: rgba(230, 219, 241, 0.8);
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -8,17 +9,17 @@
 
 
 }
-.album {
+/* .album {
 
-  background-color: rgba(230, 219, 241, 0.8);
+  background: url("https://i.ibb.co/rthy9LJ/wood-591631-640.jpg");
 
-}
-#album-cover-art {
+} */
+/* #album-cover-art {
   position: relative;
   display: inline-block;
   border-radius: 10px;
   margin-right: 400px;
-  padding-top: 20px;
+  padding-top: 20px; */
   /* position: absolute;
   /* width: 400px; */
   /* height: 0;
@@ -27,7 +28,7 @@
   margin-top: 20px; */
 
 
-}
+
 /* #album-details {
   display: inline-block;
   padding: 15px 0 0 24px;

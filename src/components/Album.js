@@ -153,70 +153,24 @@ class Album extends Component {
     const { album, currentSong, isPlaying, hoveringOver } = this.state;
     const songs = album.songs;
     return (
-      <section className="album row">
-        <div>
-          <div className="card mb-3">
-            <div className="row no-gutters">
-              <div className="col-sm-4">
-                <img
-                  className="card-img img-fluid"
-                  id="album-cover-art"
-                  src={album.albumCover}
-                  alt={album.title}
-                />
-              </div>
-              <div className="col-sm-8">
-                <section id="album-info">
-                  <div className="album-details">
-                    <h1 id="album-title">{album.title}</h1>
-                    <h2 className="artist">{album.artist}</h2>
-                    <div id="release-info">{album.releaseInfo}</div>
-                  </div>
-                </section>
-              </div>
+      <section className="album album-bg-cover">
+        <div className="top-container">
+          <section id="album-art-container">
+            <img
+              id="album-cover-img"
+              src={album.albumCover}
+              alt={album.title}
+            />
+          </section>
+          <section id="album-info">
+            <div className="album-details">
+              <h1 id="album-title">{album.title}</h1>
+              <h2 className="artist">{album.artist}</h2>
+              <div id="release-info">{album.releaseInfo}</div>
             </div>
-          </div>
+          </section>
         </div>
-        <table id="song-list">
-          <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
-          </colgroup>
-          <tbody>
-            {songs.map((song, index) => (
-              <tr
-                className="song"
-                key={index}
-                onClick={() => this.handleSongClick(song)}
-                onMouseEnter={() => this.handleMouseEnter(index)}
-                onMouseLeave={() => this.handleMouseLeave()}
-              >
-                <td>
-                  {hoveringOver === index || currentSong === song ? (
-                    <span>
-                      {this.isPlayingCurrentSong(song) ? (
-                        <span className="icon ion-md-pause" />
-                      ) : (
-                        <span className="icon ion-md-play-circle" />
-                      )}
-                    </span>
-                  ) : (
-                    <span>
-                      {this.isPlayingCurrentSong(song) ? (
-                        <span className="icon ion-md-play" />
-                      ) : (
-                        index + 1
-                      )}
-                    </span>
-                  )}
-                </td>
-                <td>{song.title}</td>
-                <td>{song.duration}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
         <PlayerBar
           isPlaying={isPlaying}
           currentSong={this.state.currentSong}
@@ -230,6 +184,50 @@ class Album extends Component {
           handleVolumeChange={e => this.handleVolumeChange(e)}
           formatTime={seconds => this.formatTime(seconds)}
         />
+
+        <div className="bottom-container">
+          <table id="song-list">
+            <colgroup>
+              <col id="song-number-column" />
+              <col id="song-title-column" />
+              <col id="song-duration-column" />
+            </colgroup>
+
+            <tbody>
+              {songs.map((song, index) => (
+                <tr
+                  className="song"
+                  key={index}
+                  onClick={() => this.handleSongClick(song)}
+                  onMouseEnter={() => this.handleMouseEnter(index)}
+                  onMouseLeave={() => this.handleMouseLeave()}
+                >
+                  <td>
+                    {hoveringOver === index || currentSong === song ? (
+                      <span>
+                        {this.isPlayingCurrentSong(song) ? (
+                          <span className="icon ion-md-pause" />
+                        ) : (
+                          <span className="icon ion-md-play-circle" />
+                        )}
+                      </span>
+                    ) : (
+                      <span>
+                        {this.isPlayingCurrentSong(song) ? (
+                          <span className="icon ion-md-play" />
+                        ) : (
+                          index + 1
+                        )}
+                      </span>
+                    )}
+                  </td>
+                  <td>{song.title}</td>
+                  <td>{song.duration}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     );
   }

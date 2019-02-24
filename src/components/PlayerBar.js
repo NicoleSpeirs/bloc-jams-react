@@ -4,7 +4,9 @@ import "./Album.css";
  class PlayerBar extends Component {
    render() {
      return (
+      <div className="middle-container">
        <section className="icon ion-md-player-bar">
+
         <section id="buttons">
           <button type="button" className="btn btn-light" id="previous" onClick={this.props.handlePrevClick}>
             <span className="icon ion-md-skip-backward"></span>
@@ -17,6 +19,7 @@ import "./Album.css";
             <span className="icon ion-md-skip-forward"></span>
           </button>
         </section>
+
         <section id="time-control">
           <div className="icon ion-md-current-time">{this.props.formatTime(this.props.currentTime)}</div>
           <input
@@ -31,8 +34,8 @@ import "./Album.css";
           <div className="icon ion-md-total-time">{this.props.formatTime(this.props.duration)}</div>
         </section>
 
-        <div className="icon ion-md-volume-low"></div>
         <section id="volume-control">
+          <div className="icon ion-md-volume-low"></div>
           <input
             type="range"
             className="icon ion-md-seek-bar"
@@ -46,6 +49,7 @@ import "./Album.css";
           <div className="icon ion-md-volume-high"></div>
         </section>
        </section>
+      </div>
      );
    }
  }

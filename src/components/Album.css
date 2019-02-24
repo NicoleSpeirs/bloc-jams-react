@@ -1,39 +1,125 @@
-#song-list {
-  background-color: rgba(230, 219, 241, 0.8);
+.album-bg-cover {
+  background: #CC95C0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 30%;
-  width: 30%;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.top-container {
+height: 500px;
+display: flex;
+/* background-color: pink; */
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+}
+
+#album-art-container {
+  /* background-color: olive; */
+  width: 50%;
+  padding-top: 20px;
+  border-radius: 30px;
+}
+#album-info {
+  /* background-color: orange; */
+  width: 50%;
+
+}
+
+#album-cover-img {
+
+  width: 100%;
+  border-radius: 20px;
+
+}
+.album-details {
+  /* background-color: dodgerblue; */
+}
+
+
+
+.middle-container {
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+  /* background-color: red; */
+  justify-content: center;
+  padding: 10px;
+}
+
+ .ion-md-player-bar  {
+   display: flex;
+   flex-direction: column;
+  /* background: blue; */
+  align-items: stretch;
+  justify-content: space-around;
+
+}
+#buttons {
+  /* background-color: pink; */
+  margin: 2px;
+  align-self: center;
+
+}
+#buttons > button {
+  margin: 0 10px;
+  border: 2px solid black;
+  background-color:#323247;
+  color: white;
+}
+
+
+#volume-control {
+  /* background-color: blue; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ion-md-total-time {
+  margin:  10px;
+}
+.ion-md-current-time {
+  margin:  10px;
+}
+
+
+
+
+#time-control {
+  /* background-color: ivory; */
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.bottom-container  {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+
+  /* background-color: aquamarine; */
 
 
 }
-/* .album {
 
-  background: url("https://i.ibb.co/rthy9LJ/wood-591631-640.jpg");
+#song-list {
+ font-size: 20;
 
-} */
-/* #album-cover-art {
-  position: relative;
-  display: inline-block;
-  border-radius: 10px;
-  margin-right: 400px;
-  padding-top: 20px; */
-  /* position: absolute;
-  /* width: 400px; */
-  /* height: 0;
-  border-radius: 10px;
-  margin-right: 400px;
-  margin-top: 20px; */
+  /* background-color: rgba(230, 219, 241, 0.8); */
+
+
+}
 
 
 
-/* #album-details {
-  display: inline-block;
-  padding: 15px 0 0 24px;
-  box-sizing: content-box;
-  vertical-align: top;
-  margin-bottom: 13px;
-  font-size: 20px;
-} */
+
+

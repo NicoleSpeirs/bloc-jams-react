@@ -3,9 +3,12 @@
   padding: 20px;
 
 }
-.Library, .album {
 
+.landing-bg {
   background: url("https://i.ibb.co/jbbDRML/background-2068283-640.jpg");
+}
+
+.bg-cover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -20,4 +23,5 @@
   width: 300px;
   height: 300px;
   padding-top: 20px;
+  border-radius: 30px;
 }

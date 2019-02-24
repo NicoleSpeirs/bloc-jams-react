@@ -1,15 +1,10 @@
-.album-cover {
-  width: 300px;
-  padding: 20px;
-
-}
 
 .landing-bg {
   background: url("https://i.ibb.co/jbbDRML/background-2068283-640.jpg");
 }
 
-.bg-cover {
-  background-size: cover;
+
+  /* background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -17,11 +12,40 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: -100;
-}
+  z-index: -100; */
+
 .album-cover {
-  width: 300px;
-  height: 300px;
-  padding-top: 20px;
+  width: 80%;
+  margin-top: 30px;
   border-radius: 30px;
+  border: 2px solid #323247;
+
+
+
+}
+.click-to-album {
+  color: black;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+}
+
+
+
+.Library {
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: calc(100vh - 56px);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

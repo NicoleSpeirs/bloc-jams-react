@@ -4,7 +4,7 @@ import "./Landing.css";
 const Landing = () => (
   <section className="landing">
     <div className="landing-bg bg-cover"> </div>
-    <h1 className="hero-title">{`Turn`+ ` ` + `the  ` + ` ` + `music ` + `up!`}</h1>
+    <h1 className="hero-title">Turn the music up!</h1>
 
     <section className="selling-points">
       <div className="point">

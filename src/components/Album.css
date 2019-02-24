@@ -1,12 +1,11 @@
 .album-bg-cover {
-  background: #CC95C0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  height: calc(100vh - 56px);
   width: 100%;
   top: 0;
   left: 0;
@@ -14,44 +13,58 @@
 }
 
 .top-container {
-height: 500px;
-display: flex;
-/* background-color: pink; */
-justify-content: space-between;
-align-items: center;
-padding: 10px;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 #album-art-container {
-  /* background-color: olive; */
   width: 50%;
-  padding-top: 20px;
-  border-radius: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+
+}
+#album-cover-img {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 20px;
+  border: 2px solid #323247;
+
 }
 #album-info {
-  /* background-color: orange; */
+  padding: 20px;
   width: 50%;
 
-}
-
-#album-cover-img {
-
-  width: 100%;
-  border-radius: 20px;
 
 }
 .album-details {
-  /* background-color: dodgerblue; */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
 
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .middle-container {
   height: 200px;
-
   display: flex;
   align-items: center;
-  /* background-color: red; */
   justify-content: center;
   padding: 10px;
 }
@@ -59,13 +72,11 @@ padding: 10px;
  .ion-md-player-bar  {
    display: flex;
    flex-direction: column;
-  /* background: blue; */
   align-items: stretch;
   justify-content: space-around;
 
 }
 #buttons {
-  /* background-color: pink; */
   margin: 2px;
   align-self: center;
 
@@ -79,7 +90,6 @@ padding: 10px;
 
 
 #volume-control {
-  /* background-color: blue; */
   display: flex;
   justify-content: space-evenly;
 }
@@ -91,11 +101,7 @@ padding: 10px;
   margin:  10px;
 }
 
-
-
-
 #time-control {
-  /* background-color: ivory; */
   display: flex;
   justify-content: space-evenly;
 
@@ -105,18 +111,24 @@ padding: 10px;
   height: 200px;
   display: flex;
   justify-content: center;
-
-  /* background-color: aquamarine; */
-
-
 }
 
 #song-list {
- font-size: 20;
+  justify-content: space-evenly;
 
-  /* background-color: rgba(230, 219, 241, 0.8); */
+}
 
-
+.song {
+  padding:  10px;font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  color: #323247;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
 

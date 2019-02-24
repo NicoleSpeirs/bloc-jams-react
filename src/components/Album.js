@@ -154,79 +154,83 @@ class Album extends Component {
     const songs = album.songs;
     return (
       <section className="album album-bg-cover">
-        <div className="top-container">
-          <section id="album-art-container">
-            <img
-              id="album-cover-img"
-              src={album.albumCover}
-              alt={album.title}
-            />
-          </section>
-          <section id="album-info">
-            <div className="album-details">
-              <h1 id="album-title">{album.title}</h1>
-              <h2 className="artist">{album.artist}</h2>
-              <div id="release-info">{album.releaseInfo}</div>
-            </div>
-          </section>
-        </div>
+        <div className="container">
+          <div className="top-container">
+            <section id="album-art-container">
+              <img
+                id="album-cover-img"
+                src={album.albumCover}
+                alt={album.title}
+              />
+            </section>
+            <section id="album-info">
+              <div className="album-details">
+                <h1 id="album-title">{album.title}</h1>
+                <h2 className="artist">{album.artist}</h2>
+                <div id="release-info">{album.releaseInfo}</div>
+              </div>
+            </section>
+          </div>
 
-        <PlayerBar
-          isPlaying={isPlaying}
-          currentSong={this.state.currentSong}
-          currentTime={this.audioElement.currentTime}
-          duration={this.audioElement.duration}
-          currentVolume={this.audioElement.currentVolume}
-          handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-          handlePrevClick={() => this.handlePrevClick()}
-          handleNextClick={() => this.handleNextClick()}
-          handleTimeChange={e => this.handleTimeChange(e)}
-          handleVolumeChange={e => this.handleVolumeChange(e)}
-          formatTime={seconds => this.formatTime(seconds)}
-        />
 
-        <div className="bottom-container">
-          <table id="song-list">
-            <colgroup>
-              <col id="song-number-column" />
-              <col id="song-title-column" />
-              <col id="song-duration-column" />
-            </colgroup>
 
-            <tbody>
-              {songs.map((song, index) => (
-                <tr
-                  className="song"
-                  key={index}
-                  onClick={() => this.handleSongClick(song)}
-                  onMouseEnter={() => this.handleMouseEnter(index)}
-                  onMouseLeave={() => this.handleMouseLeave()}
-                >
-                  <td>
-                    {hoveringOver === index || currentSong === song ? (
-                      <span>
-                        {this.isPlayingCurrentSong(song) ? (
-                          <span className="icon ion-md-pause" />
-                        ) : (
-                          <span className="icon ion-md-play-circle" />
-                        )}
-                      </span>
-                    ) : (
-                      <span>
-                        {this.isPlayingCurrentSong(song) ? (
-                          <span className="icon ion-md-play" />
-                        ) : (
-                          index + 1
-                        )}
-                      </span>
-                    )}
-                  </td>
-                  <td>{song.title}</td>
-                  <td>{song.duration}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <PlayerBar
+            isPlaying={isPlaying}
+            currentSong={this.state.currentSong}
+            currentTime={this.audioElement.currentTime}
+            duration={this.audioElement.duration}
+            currentVolume={this.audioElement.currentVolume}
+            handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+            handlePrevClick={() => this.handlePrevClick()}
+            handleNextClick={() => this.handleNextClick()}
+            handleTimeChange={e => this.handleTimeChange(e)}
+            handleVolumeChange={e => this.handleVolumeChange(e)}
+            formatTime={seconds => this.formatTime(seconds)}
+          />
+
+          <div className="bottom-container">
+            <table id="song-list">
+              <colgroup>
+                <col id="song-number-column" />
+                <col id="song-title-column" />
+                <col id="song-duration-column" />
+              </colgroup>
+
+              <tbody>
+                {songs.map((song, index) => (
+                  <tr
+                    className="song"
+                    key={index}
+                    onClick={() => this.handleSongClick(song)}
+                    onMouseEnter={() => this.handleMouseEnter(index)}
+                    onMouseLeave={() => this.handleMouseLeave()}
+                  >
+                    <td>
+                      {hoveringOver === index || currentSong === song ? (
+                        <span>
+                          {this.isPlayingCurrentSong(song) ? (
+                            <span className="icon ion-md-pause" />
+                          ) : (
+                            <span className="icon ion-md-play-circle" />
+                          )}
+                        </span>
+                      ) : (
+                        <span>
+                          {this.isPlayingCurrentSong(song) ? (
+                            <span className="icon ion-md-play" />
+                          ) : (
+                            index + 1
+                          )}
+                        </span>
+                      )}
+                    </td>
+                    <td>{song.title}</td>
+                    <td>{this.formatTime(song.duration)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     );

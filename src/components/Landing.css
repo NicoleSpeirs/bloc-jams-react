@@ -1,7 +1,7 @@
-.landing-background {
+/* .landing-background {
   background-color: pink;
   /* background: url("https://i.ibb.co/5kZNZ9q/music-1285165-640.jpg"); */
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -12,11 +12,53 @@
   z-index: -100;
 
 
+
+} */
+.landing {
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+  height: calc(100vh - 56px);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -100;
 }
 
 .hero-title {
   font-family: 'Monoton', cursive;
-  padding: 40px;
-  font-size: 50px;
+  padding: 50px;
+  font-size: 80px;
+  /* letter-spacing: 2px; */
+  word-spacing: 2px;
+  color: #000000;
+  /* font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none; */
+
+
+}
+
+.point {
+  padding: 50px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 

@@ -153,7 +153,7 @@ class Album extends Component {
     const { album, currentSong, isPlaying, hoveringOver } = this.state;
     const songs = album.songs;
     return (
-      <section className="album album-bg-cover">
+      <section className="album album-bg bg-cover">
         <div className="container">
           <div className="top-container">
             <section id="album-art-container">

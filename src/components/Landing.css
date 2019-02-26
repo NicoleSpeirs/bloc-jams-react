@@ -1,37 +1,14 @@
-/* .landing-background {
-  background-color: pink;
-  /* background: url("https://i.ibb.co/5kZNZ9q/music-1285165-640.jpg"); */
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: -100;
-
-
-
-} */
 .landing {
   background: #7F7FD5;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-
-  /* height: calc(100vh - 56px); */
-  height: 100vh;
+.bg-cover {
+  position: absolute;
+  height: calc(100% - 65px) !important;
   width: 100%;
-  top: 0;
-  left: 0;
   z-index: -100;
-
 }
 
 .hero-title {
